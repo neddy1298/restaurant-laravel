@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -22,9 +22,8 @@ class UserController extends Controller
             'gambar_user' => 'user.jpg',
             'name' => $request->name,
             'email' => $request->email,
-            'jabatan' => $request->jabatan,
+            'id_level' => $request->id_level,
         ]);
-
         return redirect('/user')->with('success', 'Data berhasil dibuat.');
     }
 
@@ -44,7 +43,7 @@ class UserController extends Controller
             'gambar_user' => $namaFile,
             'name' => $request->name,
             'email' => $request->email,
-            'jabatan' => $request->jabatan
+            'id_level' => $request->id_level
         ]);
 
         return redirect('/user')->with('warning', 'Data berhasil diupdate.');
