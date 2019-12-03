@@ -36,3 +36,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('level/edit/{id_level}','LevelController@edit')->name('levelEdit');
     
 });
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('user', 'UserController@index')->name('user')->middleware('auth');
+    Route::get('user/hapus/{id}','UserController@hapus')->name('userHapus');
+    Route::post('user/tambah', 'UserController@tambah')->name('userTambah');
+    Route::post('user/edit/{id}','UserController@edit')->name('userEdit');
+    
+});

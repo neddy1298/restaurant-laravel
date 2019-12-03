@@ -104,8 +104,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="./examples/profile.html">
-            <i class="ni ni-single-02 text-yellow"></i> User profile
+          <a class="nav-link " href="{{ route('user')}}">
+            <i class="ni ni-single-02 text-yellow"></i> Data User
           </a>
         </li>
         <li class="nav-item">
