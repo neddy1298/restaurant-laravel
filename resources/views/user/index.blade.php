@@ -60,13 +60,13 @@
                 <td>
                   <span class="badge badge-dot mr-4">
                     @if($user->id_level == 1)
-                    <i class="bg-info"></i> {{ $user->id_level }}
+                    <i class="bg-info"></i> {{ $user->nama_level }}
                     @elseif($user->id_level == 2)
-                    <i class="bg-primary"></i> {{ $user->id_level }}
+                    <i class="bg-primary"></i> {{ $user->nama_level }}
                     @elseif($user->id_level == 3)
-                    <i class="bg-success"></i> {{ $user->id_level }}
+                    <i class="bg-success"></i> {{ $user->nama_level }}
                     @elseif($user->id_level == 4)
-                    <i class="bg-warning"></i> {{ $user->id_level }}
+                    <i class="bg-warning"></i> {{ $user->nama_level }}
                     @endif
                   </span>
                 </td>
@@ -227,7 +227,7 @@
                         </div>
                         <div class="form-group">
                           <label class="form-control-label">Jabatan</label>
-                          <input type="text" class="form-control" id="id_level" name="id_level" require autocomplete="off" value="{{ $user->id_level  }}">
+                          <input type="text" class="form-control" id="id_level" name="id_level" require autocomplete="off" value="{{ $user->nama_level  }}">
                         </div>
                       </div>
                     </div>
@@ -295,13 +295,13 @@
                       <td>
                         <span class="badge badge-dot mr-4">
                           @if($user->id_level == 1)
-                          <i class="bg-info"></i> {{ $user->id_level }}
+                          <i class="bg-info"></i> {{ $user->nama_level }}
                           @elseif($user->id_level == 2)
-                          <i class="bg-primary"></i> {{ $user->id_level }}
+                          <i class="bg-primary"></i> {{ $user->nama_level }}
                           @elseif($user->id_level == 3)
-                          <i class="bg-success"></i> {{ $user->id_level }}
+                          <i class="bg-success"></i> {{ $user->nama_level }}
                           @elseif($user->id_level == 4)
-                          <i class="bg-warning"></i> {{ $user->id_level }}
+                          <i class="bg-warning"></i> {{ $user->nama_level }}
                           @endif
                         </span>
                       </td>

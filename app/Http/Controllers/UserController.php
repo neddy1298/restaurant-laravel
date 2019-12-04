@@ -10,7 +10,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = DB::table('users')
+            ->join('tbl_levels', 'tbl_levels.id_level', '=', 'users.id_level')
+            ->select('users.*','tbl_levels.nama_level')
+            ->get();
         return view('user.index', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5)
             ->with('no', '1');
