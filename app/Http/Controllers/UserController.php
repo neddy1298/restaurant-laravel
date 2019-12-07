@@ -11,18 +11,17 @@ class UserController extends Controller
     public function index()
     {
         $users = DB::table('users')
+            ->latest()
             ->join('tbl_levels', 'tbl_levels.id_level', '=', 'users.id_level')
-            ->select('users.*','tbl_levels.nama_level')
-            ->get();
+            ->select('users.*', 'tbl_levels.nama_level')
+            ->paginate(5);
         return view('user.index', compact('users'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)
             ->with('no', '1');
     }
 
     public function tambah(Request $request)
     {
         DB::table('users')->insert([
-            'gambar_user' => 'user.jpg',
             'name' => $request->name,
             'email' => $request->email,
             'id_level' => $request->id_level,
