@@ -117,8 +117,13 @@
                           <input type="text" class="form-control" id="nama_masakan" name="nama_masakan" required autocomplete="off">
                         </div>
                         <div class="form-group">
-                          <label class="form-control-label">Harga</label>
-                          <input type="number" class="form-control" id="harga" name="harga" required autocomplete="off">
+                            <label class="form-control-label">Harga</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">RP.</span>
+                                </div>
+                                <input type="text" class="form-control" id="harga" name="harga" required autocomplete="off">
+                            </div>
                         </div>
                         <div class="form-group">
                           <label class="form-control-label">Status</label>
@@ -166,7 +171,7 @@
                           </div>
                           <div class="d-flex justify-content-center">
                             <div class="btn btn-mdb-color btn-rounded float-left">
-                              <input type="file" onchange="readURL{{ $masakan->nama_masakan}}(this);" id="gambar_masakan" name="gambar_masakan" required value="{{ $masakan->gambar_masakan }}">
+                              <input type="file" onchange="readURL{{ $masakan->nama_masakan}}(this);" id="gambar_masakan" name="gambar_masakan" value="{{ $masakan->gambar_masakan }}">
                             </div>
                           </div>
                         </div>
@@ -195,9 +200,18 @@
                           <label class="form-control-label ">Nama</label>
                           <input type="text" class="form-control" id="nama_masakan" name="nama_masakan" required autocomplete="off" value="{{ $masakan->nama_masakan }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label class="form-control-label">Harga</label>
                           <input type="number" class="form-control" id="harga" name="harga" require autocomplete="off" value="{{ $masakan->harga }}">
+                        </div> --}}
+                        <div class="form-group">
+                        <label class="form-control-label">Harga</label>
+                        <div class="input-group input-group-md form-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-md">Rp.</span>
+                            </div>
+                            <input type="number" class="form-control" id="harga" name="harga" require autocomplete="off" value="{{ $masakan->harga }}">
+                          </div>
                         </div>
                         <div class="form-group">
                           <label class="form-control-label">Status</label>

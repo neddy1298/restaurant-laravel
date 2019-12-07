@@ -25,6 +25,7 @@ class LevelController extends Controller
     {
         DB::table('tbl_levels')->insert([
             'nama_level' => $request->nama_level,
+            'created_at' => now()
         ]);
 
         return redirect('/level')->with('success', 'Data berhasil dibuat.');

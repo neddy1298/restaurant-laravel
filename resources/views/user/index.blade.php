@@ -128,10 +128,19 @@
                           <label class="form-control-label">Email</label>
                           <input type="email" class="form-control" id="email" name="email" require autocomplete="off">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label class="form-control-label">Jabatan</label>
                           <input type="text" class="form-control" id="id_level" name="id_level" require autocomplete="off">
-                        </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label class="form-control-label">Jabatan</label>
+                            <select class="form-control" id="id_level" name="id_level" required>
+                                <option></option>
+                              @foreach($levels as $level)
+                                <option value="{{ $level->id_level }}">{{$level ->nama_level}}</option>
+                              @endforeach
+                            </select>
+                          </div>
                         <div class="form-group">
                             <label class="form-control-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" require autocomplete="off">
@@ -178,7 +187,7 @@
                           </div>
                           <div class="d-flex justify-content-center">
                             <div class="btn btn-mdb-color btn-rounded float-left">
-                              <input type="file" onchange="readURL{{ $user->name}}(this);" id="gambar_user" name="gambar_user" required value="{{ $user->gambar_user }}">
+                              <input type="file" onchange="readURL{{ $user->name}}(this);" id="gambar_user" name="gambar_user" value="{{ $user->gambar_user }}">
                             </div>
                           </div>
                         </div>

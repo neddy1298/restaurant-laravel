@@ -17,7 +17,7 @@ class CreateMasakansTable extends Migration
             $table->increments('id_masakan');
             $table->string('gambar_masakan')->nullable()->default('default.jpg');
             $table->string('nama_masakan');
-            $table->integer('harga');
+            $table->string('harga');
             $table->text('status_masakan');
             $table->timestamp('created_at');
         });

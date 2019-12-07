@@ -25,8 +25,9 @@ class MasakanController extends Controller
         DB::table('tbl_masakans')->insert([
             'gambar_masakan' => 'default.jpg',
             'nama_masakan' => $request->nama_masakan,
-            'harga' => $request->harga,
+            'harga' => 'Rp.' + $request->harga,
             'status_masakan' => $request->status_masakan,
+            'created_at' => now(),
         ]);
 
         return redirect('/masakan')->with('success', 'Data berhasil dibuat.');
@@ -47,7 +48,7 @@ class MasakanController extends Controller
         DB::table('tbl_masakans')->where('id_masakan', $request->id_masakan)->update([
             'gambar_masakan' => $namaFile,
             'nama_masakan' => $request->nama_masakan,
-            'harga' => $request->harga,
+            'harga' => 'Rp.' + $request->harga,
             'status_masakan' => $request->status_masakan
         ]);
 

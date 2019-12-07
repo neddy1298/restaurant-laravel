@@ -11,12 +11,13 @@ class UserController extends Controller
 {
     public function index()
     {
+        $levels = DB::table('tbl_levels')->get();
         $users = DB::table('users')
             ->latest()
             ->join('tbl_levels', 'tbl_levels.id_level', '=', 'users.id_level')
             ->select('users.*', 'tbl_levels.nama_level')
             ->paginate(5);
-        return view('user.index', compact('users'))
+        return view('user.index', compact('users', 'levels'))
             ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,6 +28,7 @@ class UserController extends Controller
             'email' => $request->email,
             'id_level' => $request->id_level,
             'password' => Hash::make($request->password),
+            'created_at' => now()
         ]);
         return redirect('/user')->with('success', 'Data berhasil dibuat.');
     }

@@ -34,7 +34,6 @@
   <link href="{{ asset('assets')}}/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('assets')}}/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
-  <link href="{{( asset('assets'))}}/js/plugins/dashboard/free/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -72,6 +71,34 @@
       });
     }, 2000);
   </script>
+
+  {{-- Format Rupiah --}}
+  {{-- <script>
+     var harga = document.getElementById('harga');
+    harga.addEventListener('keyup', function(e)
+    {
+        harga.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+    }
+</script> --}}
+  
   <!-- ChatBot -->
   <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
