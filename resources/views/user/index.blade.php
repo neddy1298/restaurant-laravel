@@ -34,7 +34,6 @@
           <table class="table align-items-center table-flush table-hover">
             <thead class="thead-light">
               <tr>
-                <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Jabatan</th>
@@ -45,7 +44,6 @@
             <tbody>
               @foreach($users as $user)
               <tr>
-              <td>{{ $no++ }}</td>
                 <th scope="row">
                   <div class="media align-items-center">
                     <a href="#" class="mr-3">
@@ -133,6 +131,10 @@
                         <div class="form-group">
                           <label class="form-control-label">Jabatan</label>
                           <input type="text" class="form-control" id="id_level" name="id_level" require autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" require autocomplete="off">
                         </div>
                       </div>
                     </div>

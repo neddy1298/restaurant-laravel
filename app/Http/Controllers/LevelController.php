@@ -15,10 +15,10 @@ class LevelController extends Controller
 
     public function index()
     {
-        $levels = Level::get();
+        $levels = Level::latest()->paginate(5);
         return view('level.index', compact('levels'))
-            ->with('no', '1')
-            ->with('no2','1');
+            ->with('no', (request()->input('page', 1) - 1) * 5)
+            ->with('no2', (request()->input('page', 1) - 1) * 5);
     }
 
     public function tambah(Request $request)

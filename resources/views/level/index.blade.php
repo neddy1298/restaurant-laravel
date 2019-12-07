@@ -43,6 +43,9 @@
                         <tbody>
                             @foreach($levels as $level)
                             <tr>
+                                @if($no == 0)
+                                <?php $no = 1;?>
+                                @endif
                                 <td class="text-center">{{ $no++ }}</td>
                                 <td>
                                     {{ $level->nama_level }}
@@ -190,6 +193,9 @@
                                     </thead>
                                     <tbody>
                                         <tr class="table-light text-dark">
+                                            @if($no2 == 0)
+                                            <?php $no2 = 1;?>
+                                            @endif
                                             <td class="text-center">
                                                 {{ $no2++ }}
                                             </td>

@@ -17,8 +17,7 @@ class MasakanController extends Controller
     {
         $masakans = Masakan::latest()->paginate(5);
         return view('masakan.index', compact('masakans'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)
-            ->with('no','1');
+            ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
     public function tambah(Request $request)
