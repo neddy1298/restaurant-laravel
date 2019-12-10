@@ -109,8 +109,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="./examples/tables.html">
-            <i class="ni ni-bullet-list-67 text-red"></i> Tables
+          <a class="nav-link " href="{{ route('order')}}">
+            <i class="ni ni-bullet-list-67 text-red"></i> Data Order
           </a>
         </li>
         <li class="nav-item">

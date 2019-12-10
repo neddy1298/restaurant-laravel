@@ -34,6 +34,12 @@
   <link href="{{ asset('assets')}}/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('assets')}}/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('assets')}}/js/materialize.css">
+  <link href="{{ asset('assets')}}/js/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"/>
+  {{-- <link href="{{ asset('assets')}}/js/plugins/bootstrap-datetimepicker/dist/css/bootstrap-datetimepicker.min.css"/> --}}
+  
+  {{-- <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> --}}
 
 </head>
 
@@ -59,6 +65,18 @@
   <!--   Argon JS   -->
   <script src="{{ asset('assets')}}/js/argon-dashboard.min.js?v=1.1.0"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  {{-- External --}}
+  <script src="{{ asset('assets')}}/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+  {{-- <script src="{{ asset('assets')}}/js/plugins/bootstrap-datetimepicker/dist/js/bootstrap-datetimepicker.min.js"></script> --}}
+
+  {{-- <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   --}}
+   <script src="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
+<link href="http://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+
+
+  
   <script>
     window.TrackJS &&
       TrackJS.install({
@@ -71,6 +89,48 @@
       });
     }, 2000);
   </script>
+  <script type="text/javascript">
+
+    $('.date').datepicker({  
+       format: 'yyyy-mm-dd'
+
+     });  
+
+</script> 
+{{-- <script>
+var timepicker = new TimePicker('time', {
+  lang: 'en',
+  theme: 'dark'
+});
+timepicker.on('change', function(evt) {
+  
+  var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+  evt.element.value = value;
+
+});
+</script> --}}
+{{-- <script>
+$( document ).ready(function() {
+  // Date Time Picker Initialization
+  $('.date-time').dateTimePicker();
+});
+</script> --}}
+<script>
+$(function(){     
+  var d = new Date(),        
+      h = d.getHours(),
+      m = d.getMinutes();
+  if(h < 10) h = '0' + h; 
+  if(m < 10) m = '0' + m; 
+  $('input[type="time"][value="now"]').each(function(){ 
+    $(this).attr({'value': h + ':' + m});
+  });
+});
+</script>
+{{-- <script>
+    const Calender = document.querySelector('.datepicker');
+    M.datepicker.init(Calender,{})
+</script>  --}}
 
   {{-- Format Rupiah --}}
   {{-- <script>
