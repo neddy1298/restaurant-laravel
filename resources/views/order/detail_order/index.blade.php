@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app' ,['activePage' => 'Order'])
 
 @if($data == 0)
 @section('content')

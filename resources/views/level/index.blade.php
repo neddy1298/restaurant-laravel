@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['activePage' => 'Level'])
 
 @section('content')
 <div class="container-fluid mt--7">
@@ -9,7 +9,8 @@
                 <div class="card-header border-0">
                     <div class="row">
                         <h3 class="col-10">Data level</h3>
-                        <button type="button" class="btn btn-icon btn-3 btn-primary" data-toggle="modal" data-target="#tambah-level">
+                        <button type="button" class="btn btn-icon btn-3 btn-primary" data-toggle="modal"
+                            data-target="#tambah-level">
 
                             <span class="btn-inner--icon"><i class="fas fa-plus mr-2"></i></span>
                             <span class="btn-inner--text">Tambah level</span>
@@ -54,13 +55,15 @@
                                     {{ $level->created_at }}
                                 </td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-icon btn-3 btn-warning" data-toggle="modal" data-target="#edit-level-{{ $level->id_level}}">
+                                    <button type="button" class="btn btn-icon btn-3 btn-warning" data-toggle="modal"
+                                        data-target="#edit-level-{{ $level->id_level}}">
 
                                         <span class="btn-inner--icon"><i class="fas fa-pen"></i></span>
                                         <span class="btn-inner--text">Edit</span>
 
                                     </button>
-                                    <button type="button" class="btn btn-icon btn-3 btn-danger" data-toggle="modal" data-target="#hapus-level-{{ $level->id_level }}">
+                                    <button type="button" class="btn btn-icon btn-3 btn-danger" data-toggle="modal"
+                                        data-target="#hapus-level-{{ $level->id_level }}">
 
                                         <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                         <span class="btn-inner--text">Hapus</span>
@@ -73,11 +76,11 @@
                     </table>
                 </div>
                 <div class="card-footer py-4">
-                  <nav aria-label="Levels">
-                    <ul class="pagination justify-content-end mb-0">
-                        {{ $levels->links("pagination::bootstrap-4") }}
-                    </ul>
-                  </nav>
+                    <nav aria-label="Levels">
+                        <ul class="pagination justify-content-end mb-0">
+                            {{ $levels->links("pagination::bootstrap-4") }}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -87,7 +90,8 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="modal fade" id="tambah-level" tabindex="-1" role="dialog" aria-labelledby="tambah-level" aria-hidden="true">
+            <div class="modal fade" id="tambah-level" tabindex="-1" role="dialog" aria-labelledby="tambah-level"
+                aria-hidden="true">
                 <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-body p-0">
@@ -102,12 +106,14 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="form-control-label ">Nama</label>
-                                                    <input type="text" class="form-control" id="nama_level" name="nama_level" required autocomplete="off">
+                                                    <input type="text" class="form-control" id="nama_level"
+                                                        name="nama_level" required autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary">Tambah</button>
                                         </div>
                                     </form>
@@ -126,7 +132,8 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="modal fade" id="edit-level-{{$level->id_level}}" tabindex="-1" role="dialog" aria-labelledby="edit-level" aria-hidden="true">
+            <div class="modal fade" id="edit-level-{{$level->id_level}}" tabindex="-1" role="dialog"
+                aria-labelledby="edit-level" aria-hidden="true">
                 <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-body p-0">
@@ -135,19 +142,23 @@
                                     <div class="text-center text-muted mb-6">
                                         <h2>Edit level</h2>
                                     </div>
-                                    <form role="form" method="POST" action="level/edit/{{$level->id_level}}" enctype="multipart/form-data">
+                                    <form role="form" method="POST" action="level/edit/{{$level->id_level}}"
+                                        enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-12">
 
                                                 <div class="form-group">
                                                     <label class="form-control-label ">Nama</label>
-                                                    <input type="text" class="form-control" id="nama_level" name="nama_level" required autocomplete="off" value="{{ $level->nama_level }}">
+                                                    <input type="text" class="form-control" id="nama_level"
+                                                        name="nama_level" required autocomplete="off"
+                                                        value="{{ $level->nama_level }}">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Batal</button>
                                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
                                     </form>
@@ -166,7 +177,8 @@
     <!-- Hapus Level -->
 
     <div class="col-md-4">
-        <div class="modal fade" id="hapus-level-{{$level->id_level}}" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+        <div class="modal fade" id="hapus-level-{{$level->id_level}}" tabindex="-1" role="dialog"
+            aria-labelledby="modal-notification" aria-hidden="true">
             <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
                 <div class="modal-content bg-gradient-danger">
 
