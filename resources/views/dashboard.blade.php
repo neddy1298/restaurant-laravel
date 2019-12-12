@@ -12,7 +12,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Orders</h3>
+                            <h3 class="mb-0">Orderan terbaru</h3>
                         </div>
                         <div class="col text-right">
                             <a href="{{ route('order') }}" class="btn btn-sm btn-primary">See all</a>
@@ -62,11 +62,6 @@
                     </table>
                 </div>
                 <div class="card-footer py-4">
-                    <nav aria-label="orders">
-                        <ul class="pagination justify-content-end mb-0">
-                            {{ $orders->links("pagination::bootstrap-4") }}
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
@@ -75,7 +70,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Masakan</h3>
+                            <h3 class="mb-0">Masakan terbaru</h3>
                         </div>
                         <div class="col text-right">
                             <a href="{{ route('masakan')}}" class="btn btn-sm btn-primary">See all</a>
@@ -108,7 +103,7 @@
                                     </div>
                                 </th>
                                 <td>
-                                    {{ $masakan->harga }}
+                                    Rp. {{ $masakan->harga }}
                                 </td>
                                 <td>
                                     <span class="badge badge-dot mr-4">
@@ -119,6 +114,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="card-footer py-4">
                 </div>
             </div>
         </div>

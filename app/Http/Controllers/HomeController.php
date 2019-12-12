@@ -26,11 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::get();
-        $orders = Order::paginate(5);
-        $masakans = Masakan::latest()->paginate(5);
+        $users = User::latest()->get();
+        $orders = Order::join('users', 'users.id' ,'=','tbl_orders.id_user')
+        ->select('tbl_orders.*','users.name')
+        ->latest()
+        ->paginate(5);
+        $masakans = Masakan::latest()->paginate(3);
         return view('dashboard', compact('users', 'masakans', 'orders'))
-            ->with('i', (request()->input('page', 1) - 1) * 5)
+            ->with('i', (request()->input('page', 1) - 1) * 3)
             ->with('no', '1');
     }
 }

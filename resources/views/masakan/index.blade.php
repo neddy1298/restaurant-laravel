@@ -58,7 +58,7 @@
                                     </div>
                                 </th>
                                 <td>
-                                    {{ $masakan->harga }}
+                                    Rp. {{ $masakan->harga }}
                                 </td>
                                 <td>
                                     <span class="badge badge-dot mr-4">
@@ -213,7 +213,6 @@
 
                                                         reader.readAsDataURL(input.files[0]);
                                                     }
-
                                                 }
                                                 </script>
 

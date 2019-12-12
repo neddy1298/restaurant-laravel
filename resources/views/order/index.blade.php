@@ -39,6 +39,7 @@
                                 <th>No Meja</th>
                                 <th>Tanggal Order</th>
                                 <th>User</th>
+                                <th>Total Harga</th>
                                 <th>Keterangan</th>
                                 <th>Status Order</th>
                                 <th class="text-center">Action</th>
@@ -59,6 +60,9 @@
                                 </td>
                                 <td>
                                     {{ $order->name }}
+                                </td>
+                                <td>
+                                    Rp. {{ $order->total_harga }}
                                 </td>
                                 <td>
                                     {{ $order->keterangan }}

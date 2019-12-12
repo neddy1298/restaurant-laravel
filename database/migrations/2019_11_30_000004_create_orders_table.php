@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('no_meja');
             $table->dateTime('tanggal');
             $table->unsignedInteger('id_user');
+            $table->integer('total_harga');
             $table->text('keterangan');
             $table->string('status_order');
             $table->timestamp('created_at');

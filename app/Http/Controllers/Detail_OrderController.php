@@ -17,9 +17,14 @@ class Detail_OrderController extends Controller
             ->join('tbl_masakans', 'tbl_masakans.id_masakan', '=', 'tbl_detail_order.id_masakan')
             ->join('users', 'users.id', '=', 'tbl_orders.id_user')
             ->where('tbl_detail_order.id_order', $id_order)
-            ->select('tbl_detail_order.*', 'tbl_orders.id_user', 'tbl_orders.no_meja','tbl_orders.tanggal', 'tbl_masakans.nama_masakan', 'users.name')
+            ->select('tbl_detail_order.*', 'tbl_orders.id_user', 'tbl_orders.no_meja','tbl_orders.tanggal', 'tbl_masakans.nama_masakan', 'users.name', 'tbl_masakans.harga')
             ->paginate(5);
-            
+         
+        $harga = $detail_orders->sum('harga');
+        DB::table('tbl_orders')->where('id_order', $id_order)->update([
+            'total_harga' => $harga
+        ]);
+
         if($cek = DB::table('tbl_detail_order')->where('tbl_detail_order.id_order', $id_order)->get()->count() == 0){
             
             $data = 0;

@@ -112,49 +112,16 @@
                         <i class="fa fa-utensils text-blue"></i> Masakan
                     </a>
                 </li>
+                <hr class="my-3">
                 <li class="nav-item">
                     <a class="nav-link {{ ($activePage == 'User') ? ' active' : '' }}" href="{{ route('user')}}">
                         <i class="ni ni-single-02 text-yellow"></i> User
                     </a>
                 </li>
+                <!-- Divider -->
                 <li class="nav-item">
                     <a class="nav-link {{ ($activePage == 'Level') ? ' active' : '' }}" href="{{ route('level')}}">
-                        <i class="ni ni-pin-3 text-orange"></i> Level
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./examples/login.html">
-                        <i class="ni ni-key-25 text-info"></i> Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./examples/register.html">
-                        <i class="ni ni-circle-08 text-pink"></i> Register
-                    </a>
-                </li>
-            </ul>
-            <!-- Divider -->
-            <hr class="my-3">
-            <!-- Heading -->
-            <h6 class="navbar-heading text-muted">Documentation</h6>
-            <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
-                <li class="nav-item">
-                    <a class="nav-link"
-                        href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                        href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-                        <i class="ni ni-palette"></i> Foundation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                        href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-                        <i class="ni ni-ui-04"></i> Components
+                        <i class="fa fa-low-vision text-orange"></i> Level
                     </a>
                 </li>
             </ul>
