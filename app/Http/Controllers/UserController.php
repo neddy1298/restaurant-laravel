@@ -21,6 +21,19 @@ class UserController extends Controller
             ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function indexProfile($id)
+    {
+        $levels = DB::table('tbl_levels')->get();
+        $users = DB::table('users')
+            ->latest()
+            ->join('tbl_levels', 'tbl_levels.id_level', '=', 'users.id_level')
+            ->select('users.*', 'tbl_levels.nama_level')
+            ->where('users.id', $id)
+            ->get();
+        $transaksi = DB::table('tbl_transaksis')->where('tbl_transaksis.id_user', $id)->get();
+        return view('user.profile.index', compact('users', 'levels', 'transaksi'));
+    }
+
     public function tambah(Request $request)
     {
         DB::table('users')->insert([
@@ -41,16 +54,48 @@ class UserController extends Controller
     }
     public function edit(Request $request)
     {
-        $file = $request->file('gambar_user');
-        $namaFile = $file->getClientOriginalName();
-        $file->move(public_path('assets/img/user/'), $namaFile);
+        if ($request->hasFile('gambar_user')) {
+            $namaFile = $request->file('gambar_user')->getClientOriginalName();
+            $file->move(public_path('assets/img/user/'), $namaFile);
+            DB::table('users')->where('id', $request->id)->update([
+                'gambar_user' => $namaFile,
+                'name' => $request->name,
+                'email' => $request->email,
+                'id_level' => $request->id_level,
+                'password' => Hash::make($request->password),
+            ]);
+        }
         DB::table('users')->where('id', $request->id)->update([
-            'gambar_user' => $namaFile,
             'name' => $request->name,
             'email' => $request->email,
             'id_level' => $request->id_level,
+            'password' => Hash::make($request->password),
         ]);
 
         return redirect('/user')->with('warning', 'Data berhasil diupdate.');
+    }
+    public function editProfile(Request $request, $id)
+    {
+        if ($request->hasFile('gambar_user')) {
+            $namaFile = $request->file('gambar_user')->getClientOriginalName();
+            $file->move(public_path('assets/img/user/'), $namaFile);
+            DB::table('users')->where('id', $request->id)->update([
+                'gambar_user' => $namaFile,
+                'name' => $request->name,
+                'email' => $request->email,
+                'id_level' => $request->id_level,
+                'password' => Hash::make($request->password),
+            ]);
+        }
+        else{
+            DB::table('users')->where('id', $request->id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'id_level' => $request->id_level,
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return redirect()->back()->with('warning', 'Data berhasil diupdate.');
     }
 }

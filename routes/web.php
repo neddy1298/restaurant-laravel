@@ -19,6 +19,7 @@
 
 Auth::routes();
 Route::get('', 'HomeController@index')->name('home');
+Route::get('transaksi', 'HomeController@transaksi')->name('transaksi');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -43,6 +44,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('user/hapus/{id}', 'UserController@hapus')->name('userHapus');
     Route::post('user/tambah', 'UserController@tambah')->name('userTambah');
     Route::post('user/edit/{id}', 'UserController@edit')->name('userEdit');
+    
+    // User Profile
+    Route::post('user/edit2/{id}', 'UserController@editProfile')->name('userEditProfile');
+    Route::get('user/{id}', 'UserController@indexProfile')->name('userProfile')->middleware('auth');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -51,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('order/hapus/{id_order}', 'OrderController@hapus')->name('orderHapus');
     Route::post('order/tambah', 'OrderController@tambah')->name('orderTambah');
     Route::post('order/edit/{id_order}', 'OrderController@edit')->name('orderEdit');
+    Route::post('order/selesai/{id_order}', 'OrderController@selesai')->name('orderSelesai');
 });
 
 Route::group(['middleware' => 'auth'], function () {

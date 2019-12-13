@@ -103,6 +103,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ ($activePage == 'Transaksi') ? ' active' : '' }}"
+                        href="{{ route('transaksi')}}">
+                        <i class="fa fa-chart-pie text-green"></i> Transaksi
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ ($activePage == 'Order') ? ' active' : '' }}" href="{{ route('order')}}">
                         <i class="ni ni-bullet-list-67 text-red"></i> Data Order
                     </a>

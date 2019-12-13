@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Masakan;
 use App\Order;
+use App\Transaksi;
 
 class HomeController extends Controller
 {
@@ -27,13 +28,23 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::latest()->get();
+        $transaksis = Transaksi::latest()->take(5)->get();
+        $masakans = Masakan::latest()->take(5)->get();
         $orders = Order::join('users', 'users.id' ,'=','tbl_orders.id_user')
         ->select('tbl_orders.*','users.name')
         ->latest()
-        ->paginate(5);
-        $masakans = Masakan::latest()->paginate(3);
-        return view('dashboard', compact('users', 'masakans', 'orders'))
+        ->take(5)
+        ->get();
+        return view('dashboard', compact('users', 'masakans', 'orders', 'transaksis'))
             ->with('i', (request()->input('page', 1) - 1) * 3)
-            ->with('no', '1');
+            ->with('no', '1')
+            ->with('no2', '1');
+    }
+    public function transaksi()
+    {
+        $transaksis = Transaksi::latest()->paginate(5);
+
+        return view('transaksi.index', compact('users', 'masakans', 'orders', 'transaksis'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

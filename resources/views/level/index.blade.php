@@ -236,6 +236,6 @@
     </div>
 
     <!-- !Hapus level -->
-
+</div>
     @endforeach
     @endsection

@@ -41,6 +41,7 @@ class MasakanController extends Controller
     }
     public function edit(Request $request)
     {
+        if ($request->hasFile('gambar_masakan')) {
 
         $file = $request->file('gambar_masakan');
         $namaFile = $file->getClientOriginalName();
@@ -51,7 +52,14 @@ class MasakanController extends Controller
             'harga' => 'Rp.' + $request->harga,
             'status_masakan' => $request->status_masakan
         ]);
-
+        }
+        else{
+            DB::table('tbl_masakans')->where('id_masakan', $request->id_masakan)->update([
+                'nama_masakan' => $request->nama_masakan,
+                'harga' => 'Rp.' + $request->harga,
+                'status_masakan' => $request->status_masakan
+            ]);
+        }
         return redirect('/masakan')->with('warning', 'Data berhasil diupdate.');
     }
 }

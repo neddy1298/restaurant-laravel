@@ -24,6 +24,7 @@ class OrderController extends Controller
 
         return view('order.index', compact('orders'))
             ->with('no', (request()->input('page', 1) - 1) * 5);
+        // return json_encode($detail_orders);
     }
 
     public function tambah(Request $request)
@@ -32,6 +33,7 @@ class OrderController extends Controller
             'id_user' => $request->id_user,
             'no_meja' => $request->no_meja,
             'tanggal' => $request->tanggal . ' ' . $request->time . ':00',
+            'total_harga' => 0,
             'keterangan' => $request->keterangan,
             'status_order' => $request->status_order,
             'created_at' => now()
@@ -57,5 +59,32 @@ class OrderController extends Controller
         ]);
 
         return redirect('/order')->with('warning', 'Data berhasil diupdate.');
+    }
+    
+    public function selesai(Request $request)
+    {
+        if($request->total_bayar < $request->total_harga)
+        {
+            return redirect('/order')->with('warning', 'Transaksi gagal, pastikan membayar tidak kurang dari harga yang harus dibayar.');
+        }
+        else
+        {
+            DB::table('tbl_orders')->where('id_order', $request->id_order)->update([
+                'status_order' => 'Selesai'
+            ]);
+            DB::table('tbl_detail_order')->where('id_order', $request->id_order)->update([
+                'status_detail_order' => 'Selesai'
+            ]);
+            DB::table('tbl_transaksis')->insert([
+                'id_user' => $request->id_user,
+                'id_order' => $request->id_order,
+                'tanggal' => $request->tanggal . ' ' . $request->time . ':00',
+                'total_bayar' => $request->total_bayar,
+                'created_at' => now()
+            ]);
+            
+            return redirect('/order')->with('success', 'Transaksi berhasil.');
+        }
+
     }
 }

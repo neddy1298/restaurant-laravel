@@ -119,7 +119,64 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-12 mt-5 mb-5">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">Transaksi terbaru</h3>
+                        </div>
+                        <div class="col text-right">
+                            <a href="{{ route('transaksi')}}" class="btn btn-sm btn-primary">See all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <!-- Projects table -->
+                    <table class="table align-items-center table-flush table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>No</th>
+                                <th>Id Transaksi</th>
+                                <th>User</th>
+                                <th>Id Order</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Total Bayar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($transaksis as $transaksi)
+                            <tr>
+                                @if($no2 == 0)
+                                <?php $no2 = 1;?>
+                                @endif
+                                <td class="text-center">{{ $no2++ }}</td>
+                                <td>
+                                    {{ $transaksi->id_transaksi }}
+                                </td>
+                                <td>
+                                    {{ $transaksi->id_user }}
+                                </td>
+                                <td>
+                                    {{ $transaksi->id_order }}
+                                </td>
+                                <td>
+                                    {{ $transaksi->tanggal }}
+                                </td>
+                                <td>
+                                    {{ $transaksi->total_bayar }}
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer py-4">
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Footer -->
+</div>
+<!-- Footer -->
 
-    @endsection
+@endsection
