@@ -13,7 +13,15 @@ class Users extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([[
+        DB::table('users')->insert([
+        [
+            'email' => 'owner@resto.com',
+            'password' => Hash::make('owner'),
+            'name' => 'owner',
+            'id_level' => '3',
+            'created_at' => now(),
+            'updated_at' => now()
+        ], [
             'email' => 'admin@resto.com',
             'password' => Hash::make('admin'),
             'name' => 'Administrator',
@@ -31,14 +39,7 @@ class Users extends Seeder
             'email' => 'kasir@resto.com',
             'password' => Hash::make('kasir'),
             'name' => 'kasir',
-            'id_level' => '3',
-            'created_at' => now(),
-            'updated_at' => now()
-        ], [
-            'email' => 'owner@resto.com',
-            'password' => Hash::make('owner'),
-            'name' => 'owner',
-            'id_level' => '1',
+            'id_level' => '2',
             'created_at' => now(),
             'updated_at' => now()
         ], [

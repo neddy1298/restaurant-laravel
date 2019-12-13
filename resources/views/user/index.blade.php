@@ -9,7 +9,7 @@
                 <div class="card-header border-0">
                     <div class="row">
                         <h3 class="col-10">Data user</h3>
-                                <!-- <input class="form-control" id="myInput" type="text" placeholder="Search.."/> -->
+                        <!-- <input class="form-control" id="myInput" type="text" placeholder="Search.."/> -->
                         <button type="button" class="btn btn-icon btn-3 btn-primary" data-toggle="modal"
                             data-target="#tambah-user">
 
@@ -208,7 +208,11 @@
 
 
                                                 <script>
-                                                function readURL{{$user->name}}(input) {
+                                                function readURL {
+                                                    {
+                                                        $user - > name
+                                                    }
+                                                }(input) {
                                                     if (input.files && input.files[0]) {
 
                                                         var reader = new FileReader();
@@ -237,15 +241,16 @@
                                                         require autocomplete="off" value="{{ $user->email }}">
                                                 </div>
                                                 <div class="form-group">
-                                                        <label class="form-control-label">Jabatan</label>
-                                                        <select class="form-control" id="id_level" name="id_level" required>
-                                                            <option value="{{ $user->id_level}}">{{ $user->nama_level  }}</option>
-                                                            @foreach($levels as $level)
-                                                            <option value="{{ $level->id_level }}">{{$level ->nama_level}}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
+                                                    <label class="form-control-label">Jabatan</label>
+                                                    <select class="form-control" id="id_level" name="id_level" required>
+                                                        <option value="{{ $user->id_level}}">{{ $user->nama_level  }}
+                                                        </option>
+                                                        @foreach($levels as $level)
+                                                        <option value="{{ $level->id_level }}">{{$level ->nama_level}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -348,7 +353,7 @@
     </div>
 </div>
 
-    <!-- !Hapus user -->
+<!-- !Hapus user -->
 
-    @endforeach
-    @endsection
+@endforeach
+@endsection
