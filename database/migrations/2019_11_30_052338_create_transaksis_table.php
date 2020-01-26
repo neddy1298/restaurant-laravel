@@ -22,7 +22,7 @@ class CreateTransaksisTable extends Migration
             $table->timestamp('created_at');
 
             $table->foreign('id_order')->references('id_order')->on('tbl_orders')->onDelete('cascade');
-            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
