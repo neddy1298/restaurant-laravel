@@ -1,5 +1,5 @@
-email: admin@resto.com
-password: admin
+<p>email: admin@resto.com</p>
+<p>password: admin</p>
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
