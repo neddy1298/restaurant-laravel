@@ -44,7 +44,7 @@ class HomeController extends Controller
     {
         $transaksis = Transaksi::latest()->paginate(5);
 
-        return view('transaksi.index', compact('users', 'masakans', 'orders', 'transaksis'))
+        return view('transaksi.index', compact('transaksis'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }
