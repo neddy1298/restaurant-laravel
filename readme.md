@@ -1,61 +1,110 @@
-<p>email: admin@resto.com</p>
-<p>password: admin</p>
+# Restaurant Management System
 
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+A Laravel-based restaurant management system that helps manage orders, menus, and staff.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Requirements
 
-## About Laravel
+- PHP >= 7.4
+- MySQL >= 5.7
+- Composer
+- Node.js & NPM
+- Git
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Installation Steps
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone the repository
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+```bash
+git clone https://github.com/neddy1298/restaurant-laravel.git
+cd restaurant-laravel
+```
 
-## Learning Laravel
+2. Install PHP dependencies
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+```bash
+composer install
+```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+3. Install NPM dependencies
 
-## Laravel Sponsors
+```bash
+npm install
+```
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+4. Create and setup .env file
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+5. Configure your database in .env file
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_restaurant
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Security Vulnerabilities
+6. Run database migrations and seeders
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate:fresh --seed
+```
+
+7. Compile assets
+
+```bash
+npm run dev
+```
+
+8. Start the development server
+
+```bash
+php artisan serve
+```
+
+The application will be available at `http://localhost:8000`
+
+## Default Users
+
+After running the seeders, you can login with these default credentials:
+
+- Owner:
+
+  - Email: owner@resto.com
+  - Password: owner
+
+- Administrator:
+
+  - Email: admin@resto.com
+  - Password: admin
+
+- Waiter:
+
+  - Email: waiter@resto.com
+  - Password: waiter
+
+- Cashier:
+
+  - Email: kasir@resto.com
+  - Password: kasir
+
+- Customer:
+  - Email: pelanggan@resto.com
+  - Password: pelanggan
+
+## Features
+
+- User Management (Admin, Staff, etc.)
+- Menu Management
+- Order Processing
+- Transaction History
+- Reporting
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
