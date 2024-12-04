@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Masakan;
-use App\Order;
-use App\Transaksi;
+use App\Models\User;
+use App\Models\Masakan;
+use App\Models\Order;
+use App\Models\Transaksi;
 
 class HomeController extends Controller
 {

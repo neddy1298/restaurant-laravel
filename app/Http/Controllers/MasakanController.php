@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Masakan;
+use App\Models\Masakan;
 use Illuminate\Support\Facades\DB;
 
 class MasakanController extends Controller

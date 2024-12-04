@@ -66,3 +66,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('order/detail/{id_order}/tambah', 'Detail_OrderController@tambah')->name('detail_orderTambah');
     Route::post('order/detail/{id_order}/edit/{id_detail_order}', 'Detail_OrderController@edit')->name('detail_orderEdit');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
